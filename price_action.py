@@ -151,10 +151,10 @@ for row in range(back_candles, len(dataF) - n2):
 
     for subrow in range(row-back_candles + n1, row + 1):
         if support(dataF,subrow,n1,n2):
-            support_levels.append(dataF.low[subrow])
+            support_levels.append(dataF.Low[subrow])
 
         if resistance(dataF,subrow,n1,n2):
-            resistance_levels.append(dataF.high[subrow])
+            resistance_levels.append(dataF.High[subrow])
 
     if engulfing(row) == 1 or star(row) and close_resistance(row, resistance_levels, 150e-5):
         signal[row] = 1
