@@ -97,16 +97,16 @@ def star(candle):
 def close_resistance(candle, levels, lim): #lim = how close to touching a level
     if len(levels) == 0:
         return 0
-    c1 = abs(dataF.high[candle] - min(levels,
-                                      key=lambda x:abs(x-dataF.high[candle])))<=lim
-    c2 = abs(max(dataF.open_[candle],
-                 dataF.close_[candle]) - min(levels,
-                                             key=lambda x:abs(x-dataF.low[candle])))<=lim
-    c3 = max(dataF.open_[candle],
-             dataF.close_[candle])>min(levels,
-                                       key=lambda x:abs(x-dataF.low[candle]))
-    c4 = dataF.low[candle] < min(levels,
-                                 key=lambda x:abs(x-dataF.high[candle]))
+    c1 = abs(dataF.High[candle] - min(levels,
+                                      key=lambda x:abs(x-dataF.High[candle])))<=lim
+    c2 = abs(max(dataF.Open[candle],
+                 dataF.Close[candle]) - min(levels,
+                                             key=lambda x:abs(x-dataF.Low[candle])))<=lim
+    c3 = max(dataF.Open[candle],
+             dataF.Close[candle])>min(levels,
+                                       key=lambda x:abs(x-dataF.Low[candle]))
+    c4 = dataF.Low[candle] < min(levels,
+                                 key=lambda x:abs(x-dataF.High[candle]))
 
     if(c1 or c2) and c3 and c4:
         return 1
@@ -117,16 +117,16 @@ def close_support(candle, levels, lim):
     if len(levels) == 0:
         return 0
 
-    c1 = abs(dataF.low[candle] - min(levels,
-                                     key=lambda x:abs(x-dataF.low[candle])))<=lim
-    c2 = abs(min(dataF.open_[candle],
-                 dataF.close_[candle]) - min(levels,
-                                             key=lambda x:abs(x-dataF.low[candle])))<=lim
-    c3 = max(dataF.open_[candle],
-             dataF.close_[candle])>min(levels,
-                                       key=lambda x:abs(x-dataF.low[candle]))
-    c4 = dataF.high[candle] > min(levels,
-                                  key=lambda x:abs(x-dataF.low[candle]))
+    c1 = abs(dataF.Low[candle] - min(levels,
+                                     key=lambda x:abs(x-dataF.Low[candle])))<=lim
+    c2 = abs(min(dataF.Open[candle],
+                 dataF.Close[candle]) - min(levels,
+                                             key=lambda x:abs(x-dataF.Low[candle])))<=lim
+    c3 = max(dataF.Open[candle],
+             dataF.Close[candle])>min(levels,
+                                       key=lambda x:abs(x-dataF.Low[candle]))
+    c4 = dataF.High[candle] > min(levels,
+                                  key=lambda x:abs(x-dataF.Low[candle]))
 
     if (c1 or c2) and c3 and c4:
         return 1
