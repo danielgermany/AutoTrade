@@ -1,8 +1,8 @@
 from backtesting import Backtest
-from db import dataF
+from db import df
 from Strat import strat
 
-bt = Backtest(dataF,strat, cash= 50_000)
+bt = Backtest(df,strat, cash= 50_000)
 stat = bt.run()
 
 print(stat)
